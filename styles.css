@@ -73,6 +73,7 @@ header {
 }
 
 .sidebar {
+  border-left: 1px solid #ccc;
   position: absolute;
   top: 60px; right: 0; bottom: 0; left: auto;
   padding: 10px;
@@ -84,4 +85,24 @@ header {
   justify-content: space-around;
   align-content: center;
   width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+#sidebar-head {
+  justify-content: space-between;
+}
+
+#sidebar-nav {
+  height: 50px;
+}
+
+#sidebar-table {
+  height: 275px;
+}
+
+#sidebar-foot {
+  font-size: 12px;
+  height: 150px;
+  align-items: end;
 }
