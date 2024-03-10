@@ -9,14 +9,20 @@
 </head>
 
 <body>
-  <div class="calendar">
-    <div class="month">
-      <button id="prevBtn">prev</button>
-      <span id="currentMonth">Month</span>
-      <button id="nextBtn">next</button>
+
+  <header>
+    <p>logo</p>
+    <p>Title</p>
+    <div id="logSignContainer">
+      <p>log-in</p>
+      <p>sign-up</p>
     </div>
-    <table>
-      <tr class="weekdays" id="calenderDays">
+  </header>
+
+  <div class="calendar">
+
+    <table id="calendarDays">
+      <tr class="weekdays">
         <th scope="col">Mo</th>
         <th scope="col">Tu</th>
         <th scope="col">We</th>
@@ -26,54 +32,42 @@
         <th scope="col">Su</th>
       </tr>
       <tr class="days">
-        <td class="day">1</td>
-        <td class="day">2</td>
-        <td class="day">3</td>
-        <td class="day">4</td>
-        <td class="day">5</td>
-        <td class="day">6</td>
-        <td class="day">7</td>
+        <td class="day">#{sunday}</td>
+        <td class="day">#{monday}</td>
+        <td class="day">#{tuesday}</td>
+        <td class="day">#{wednesday}</td>
+        <td class="day">#{thursday}</td>
+        <td class="day">#{friday}</td>
+        <td class="day">#{saturday}</td>
       </tr>
-      <tr class="days">
-        <td class="day">8</td>
-        <td class="day">9</td>
-        <td class="day">10</td>
-        <td class="day">11</td>
-        <td class="day">12</td>
-        <td class="day">13</td>
-        <td class="day">14</td>
-      </tr>
-      <tr class="days">
-        <td class="day">15</td>
-        <td class="day">16</td>
-        <td class="day">17</td>
-        <td class="day">18</td>
-        <td class="day">19</td>
-        <td class="day">20</td>
-        <td class="day">21</td>
-      </tr>
-      <tr class="days">
-        <td class="day">22</td>
-        <td class="day">23</td>
-        <td class="day">24</td>
-        <td class="day">25</td>
-        <td class="day">26</td>
-        <td class="day">27</td>
-        <td class="day">28</td>
-      </tr>
-      <tr class="days">
-        <td class="day">29</td>
-        <td class="day">30</td>
-        <td class="day">31</td>
-        <td class="day"></td>
-        <td class="day"></td>
-        <td class="day"></td>
-        <td class="day"></td>
-      </tr>
+    </table>
+
   </div>
 
+  <div class="sidebar">
+    <div id="sidebar-head">
+      <p>img</p>
+      <p>name</p>
+    </div>
+    <div id="sidebar-nav">
+      <p>month</p>
+      <p>year</p>
+      <p>to-do</p>
+      <p>events</p>
+    </div>
+    <div id="sidebar-nav2">
+      <p>lists</p>
+      <p>dropdown</p>
+    </div>
+    <div id="sidebar-table">
+      <table></table>
+    </div>
+    <div id="sidebar-foot">
+      <p>new list</p>
+      <p>new event</p>
+    </div>
+  </div>
 
-  </table>
   <script src="./script.js"></script>
 </body>
 
