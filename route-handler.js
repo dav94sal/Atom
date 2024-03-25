@@ -23,10 +23,11 @@ module.exports = function routeHandler(req, res) {
       return res.end(script);
     }
 
-  } else {
-    // Return a 404 response when there is no matching route handler
-    res.statusCode = 404;
-    res.setHeader('Content-Type', 'text/plain');
-    return res.end('No matching route handler found for this endpoint');
   }
+  
+  // Return a 404 response when there is no matching route handler
+  res.statusCode = 404;
+  res.setHeader('Content-Type', 'text/plain');
+  return res.end('No matching route handler found for this endpoint');
+
 }

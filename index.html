@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Calender</title>
   <link href="./styles.css" rel="stylesheet">
+  <link rel="stylesheet"
+        href=
+"https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
 
 <body>
@@ -21,26 +24,18 @@
 
   <div class="calendar">
 
-    <table id="calendarDays">
-      <tr class="weekdays">
-        <th scope="col">Mo</th>
-        <th scope="col">Tu</th>
-        <th scope="col">We</th>
-        <th scope="col">Th</th>
-        <th scope="col">Fi</th>
-        <th scope="col">Sa</th>
-        <th scope="col">Su</th>
-      </tr>
-      <tr class="days">
-        <td class="day">#{sunday}</td>
-        <td class="day">#{monday}</td>
-        <td class="day">#{tuesday}</td>
-        <td class="day">#{wednesday}</td>
-        <td class="day">#{thursday}</td>
-        <td class="day">#{friday}</td>
-        <td id="saturday" class="day">#{saturday}</td>
-      </tr>
-    </table>
+    <div id="calendarDays">
+      <ul class="weekdays">
+        <li scope="col">Mo</li>
+        <li scope="col">Tu</li>
+        <li scope="col">We</li>
+        <li scope="col">Th</li>
+        <li scope="col">Fi</li>
+        <li scope="col">Sa</li>
+        <li scope="col">Su</li>
+      </ul>
+      <ul class="days"></ul>
+    </div>
 
   </div>
 
@@ -50,7 +45,7 @@
       <p>name</p>
     </div>
     <div id="sidebar-nav">
-      <p>month</p>
+      <p class="calender-current-date">month</p>
       <p>year</p>
       <p>to-do</p>
       <p>events</p>
@@ -79,6 +74,7 @@
   </div>
 
   <script src="./script.js"></script>
+
 </body>
 
 </html>
