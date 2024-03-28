@@ -5,7 +5,7 @@ let month = date.getMonth();
 const day = document.querySelector(".days");
 
 const currdate = document
-	.querySelector(".calendar-current-date");
+	.getElementsByClassName(".calendar-current-date");
 
 const prenexIcons = document
 	.querySelectorAll(".calendar-navigation span");

@@ -57,7 +57,7 @@ header {
 .weekdays {
   display: flex;
   justify-content: space-around;
-  padding: 5px;
+  padding: 5px 0;
   color: rgb(51, 179, 174);
 }
 
@@ -65,6 +65,12 @@ header {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   height: 90%;
+  padding-left: unset;
+}
+
+.days li {
+  border: 1px solid rgba(82, 81, 81, 0.555);
+  padding: 10px 3px;
 }
 
 .day {
@@ -75,8 +81,12 @@ header {
 }
 
 .active {
-  background-color: #1abc9c;
-  color: white;
+  color: rgb(51, 179, 174);
+}
+
+.inactive {
+  color: rgba(82, 81, 81, 0.555);
+
 }
 
 #saturday {
