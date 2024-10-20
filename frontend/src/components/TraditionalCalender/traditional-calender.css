@@ -1,0 +1,46 @@
+/* Styles for the calendar */
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 90%;
+    padding-left: unset;
+    margin: unset;
+  }
+
+  .days li {
+    font-size: 10px;
+    text-align: center;
+    padding: 8px 2px;
+    height: 90%;
+  }
+
+  .month {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+  }
+
+  .select-month {
+    font-size: 12px;
+  }
+
+  .back-but {
+    padding: 0 13px
+  }
+
+  .month-but {
+    background-color: unset;
+    border: unset;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .active {
+    color: #ccc;
+  }
+
+  .inactive {
+    color: rgba(82, 81, 81, 0.555);
+
+  }

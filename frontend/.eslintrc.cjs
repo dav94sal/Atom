@@ -18,5 +18,13 @@ module.exports = {
     ],
     'react/prop-types': 'off' // turn off rule that checks if prop types are always validated (not needed for AA projects)
   },
-  ignorePatterns: ['dist', 'node_modules'] // will ignore files in dist and node_modules
+  ignorePatterns: ['dist', 'node_modules'], // will ignore files in dist and node_modules
+  overrides: [
+    {
+      files: ["src/context/*.jsx"],
+      rules: {
+        'react-refresh/only-export-components': 'off'
+      }
+    }
+  ],
 }

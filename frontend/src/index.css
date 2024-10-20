@@ -1,1 +1,13 @@
 /* TODO: Add sitewide styles */
+ul {
+    list-style: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 10px 205px 90%;
+}
+
+.sidebar {
+    grid-column-start: 2;
+}
