@@ -6,7 +6,7 @@ import "./navigation.css"
 // import { useEffect } from "react";
 
 function Navigation() {
-    const { today, currentDate, setCurrentDate } = useMonth()
+    const { today, setCurrentDate } = useMonth();
 
     // useEffect(() => {
 

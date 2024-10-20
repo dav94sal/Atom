@@ -1,4 +1,5 @@
 import TraditionalCalender from "../TraditionalCalender"
+import Scheduling from "../Scheduling/Scheduling";
 import "./home.css";
 
 function Home() {
@@ -8,6 +9,9 @@ function Home() {
                 <div className="traditional-calender">
                     <TraditionalCalender />
                 </div>
+            </div>
+            <div className="scheduling">
+                <Scheduling />
             </div>
         </>
     )

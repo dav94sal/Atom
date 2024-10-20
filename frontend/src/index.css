@@ -15,6 +15,10 @@ main {
     padding: 20px;
 }
 
+.sidebar {
+    padding-top: 50px;
+}
+
 nav {
     background-color: #000634;
     color: #ebe8f7;
