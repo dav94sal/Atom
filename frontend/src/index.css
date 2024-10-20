@@ -1,13 +1,27 @@
 /* TODO: Add sitewide styles */
+body {
+    margin: unset;
+    font-family: "Roboto";
+}
+
 ul {
     list-style: none;
 }
 
 main {
     display: grid;
-    grid-template-columns: 10px 205px 90%;
+    grid-template-columns: 205px 80%;
+    position: relative;
+    padding: 20px;
 }
 
-.sidebar {
-    grid-column-start: 2;
+nav {
+    background-color: #000634;
+    color: #ebe8f7;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    border-bottom: 1px solid grey;
 }

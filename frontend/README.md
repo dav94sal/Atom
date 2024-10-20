@@ -6,7 +6,7 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
+- Logo: <a href="https://www.freepik.com/free-vector/atom-science-biotechnology-purple-vector-neon-graphic_16395994.htm#query=atom%20png&position=29&from_view=keyword&track=ais_hybrid&uuid=41cb0805-eabf-405f-bdb5-4f86ea28d843">Image by rawpixel.com</a> on Freepik
 
 ## How To Clone
 

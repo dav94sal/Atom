@@ -6,17 +6,17 @@ import Calendr from "../../../utils/CalenderClass";
 import "./traditional-calender.css"
 
 function TraditionalCalender() {
-    const { currentDate, setCurrentDate, month, setMonth, year, today } = useMonth()
+    const { currentDate, setCurrentDate, month, setMonth, year, date } = useMonth()
 
     useEffect(() => {
-        const newDate = new Calendr(today, year, month)
+        const newDate = new Calendr(date, year, month)
         setCurrentDate(newDate)
-    }, [month, setCurrentDate, today, year])
+    }, [month, setCurrentDate, date, year])
 
     return(
         <>
             <div className="month">
-                <div>{`${currentDate.months[month]} ${year}`}</div>
+                <div>{currentDate.stringr()}</div>
                 <div>
                     <button
                         className="month-but"

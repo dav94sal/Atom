@@ -20,6 +20,10 @@ class Calendr {
         ];
     }
 
+    stringr() {
+        return `${this.months[this.month]} ${this.year}`
+    }
+
     generateCalender() {
         // Get the first day of the month
         let dayone = new Date(this.year, this.month, 1).getDay();

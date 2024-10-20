@@ -1,0 +1,55 @@
+.today-but,
+.current-month {
+    color: #c78ee3;
+}
+
+.logo-container {
+    padding: 7px;
+}
+
+.logo {
+    border-radius: 50%;
+    height: 100%;
+}
+
+.title {
+    margin: 15px 6px;
+    font-size: 24px;
+    color: #00ddff;
+}
+
+.today-but-container {
+    margin: 12px 30px;
+    margin-right: 0;
+}
+
+.today-but {
+    background-color: unset;
+    border-radius: 7px;
+    border: 1px solid #00ddff;
+    height: 100%;
+    width: 65px;
+}
+
+.week-but-container {
+    display: flex;
+    margin: 20px;
+}
+
+.week-but {
+    display: flex;
+    background-color: unset;
+    border: unset;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-week {
+    font-size: 15px;
+    color: #00ddff;
+}
+
+.current-month {
+    margin: 18px 0;
+    font-size: 18px;
+}
