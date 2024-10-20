@@ -1,14 +1,17 @@
+import { useEffect } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { useMonth } from "../../context/MonthContext";
+import Calendr from "../../../utils/CalenderClass";
 import "./traditional-calender.css"
 
 function TraditionalCalender() {
-    const { currentDate, year, month } = useMonth()
+    const { currentDate, setCurrentDate, month, setMonth, year, today } = useMonth()
 
-    const handleClick = e => {
-        
-    }
+    useEffect(() => {
+        const newDate = new Calendr(today, year, month)
+        setCurrentDate(newDate)
+    }, [month, setCurrentDate, today, year])
 
     return(
         <>
@@ -17,13 +20,13 @@ function TraditionalCalender() {
                 <div>
                     <button
                         className="month-but"
-                        onClick={handleClick}
+                        onClick={() => setMonth(month - 1)}
                     >
                         <FaAngleLeft className="select-month back-but"/>
                     </button>
                     <button
                         className="month-but"
-                        onClick={handleClick}
+                        onClick={() => setMonth(month + 1)}
                     >
                         <FaAngleRight className="select-month"/>
                     </button>
