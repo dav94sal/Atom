@@ -10,6 +10,7 @@ const MonthProvider = props => {
     const [year, setYear] = useState(date.getFullYear())
     const [month, setMonth] = useState(date.getMonth())
     const [today, setToday] = useState(new Calendr(new Date(), year, month))
+    const [week, setWeek] = useState(today.week)
     const [currentDate, setCurrentDate] = useState(new Calendr(date, year, month))
 
     const value = {
@@ -17,6 +18,7 @@ const MonthProvider = props => {
         today, setToday,
         year, setYear,
         month, setMonth,
+        week, setWeek,
         currentDate, setCurrentDate
     }
 

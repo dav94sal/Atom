@@ -1,0 +1,19 @@
+.head-week-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.weekday {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weekday p {
+    font-size: 12px;
+}
+
+.weekday div {
+    font-size: 28px;
+    font-weight: 400;
+}

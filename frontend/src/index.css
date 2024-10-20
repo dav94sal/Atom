@@ -15,10 +15,6 @@ main {
     padding: 20px;
 }
 
-.sidebar {
-    padding-top: 50px;
-}
-
 nav {
     background-color: #000634;
     color: #ebe8f7;
@@ -28,4 +24,12 @@ nav {
     right: 0;
     height: 60px;
     border-bottom: 1px solid grey;
+}
+
+.sidebar {
+    padding-top: 50px;
+}
+
+.scheduling {
+    padding: 20px;
 }

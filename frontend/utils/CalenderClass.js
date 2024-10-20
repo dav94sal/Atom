@@ -3,7 +3,7 @@ class Calendr {
         this.date = date;
         this.year = year;
         this.month = month;
-        this.calendr = this.generateCalender()
+        this.calendr = this.generateCalender();
         this.months = [
             "January",
             "February",
@@ -18,15 +18,59 @@ class Calendr {
             "November",
             "December"
         ];
+        this.week = 0;
+        this.weeks = this.weekr();
     }
 
     stringr() {
         return `${this.months[this.month]} ${this.year}`
     }
 
-    // weekr() {
-    //     return
+    // static today() {
+    //     const date = new Date()
+    //     const year = date.getFullYear()
+    //     const month = date.getFullMonth()
+    //     return new Calendr(date, year, month)
     // }
+
+    weekr() {
+        const cal = this.calendr
+        const weeks = {
+            1: [],
+            2: [],
+            3: [],
+            4: [],
+            5: [],
+            6: [],
+            wkdays: ['SUN','MON','TUE','WED','THU','FRI','SAT']
+        };
+
+        let day = 0
+        let week = 1
+
+        let count = 0
+
+        while (day < cal.length) {
+            const dayObj = cal[day]
+            if (dayObj.class === 'active') {
+                this.week = week
+                // console.log(dayObj)
+            }
+            dayObj.week = week
+            dayObj.wkday = weeks.wkdays[count]
+
+            weeks[week].push(dayObj)
+            if (count === 6) {
+                count = 0;
+                week++;
+            }
+            else if (count < 6) count++;
+
+            day++;
+        }
+
+        return weeks
+    }
 
     generateCalender() {
         // Get the first day of the month
@@ -42,13 +86,14 @@ class Calendr {
         let monthlastdate = new Date(this.year, this.month, 0).getDate();
 
         // Variable to store the generated calendar HTML
-        let lists = [];
+        let newCal = [];
 
         // Loop to add the last dates of the previous month
         for (let i = dayone; i > 0; i--) {
-            lists.push({
-                "class": "inactive",
-                "day": monthlastdate - i + 1
+            newCal.push({
+                class: "inactive",
+                day: monthlastdate - i + 1,
+                previous: true
             })
         }
 
@@ -61,22 +106,25 @@ class Calendr {
                 && this.year === new Date().getFullYear()
                 ? "active"
                 : "";
-            lists.push({
+            newCal.push({
                 // `<li class="${isToday}">${i}</li>`
                 class: isToday,
-                day: i
+                day: i,
+                current: true
             });
         }
 
         // Loop to add the first dates of the next month
         for (let i = dayend; i < 13; i++) {
             `<li class="inactive">${i - dayend + 1}</li>`
-            lists.push({
+            newCal.push({
                 class: "inactive",
-                day: i - dayend + 1
+                day: i - dayend + 1,
+                next: true
             })
         }
-        return lists
+
+        return newCal
     }
 
 }
