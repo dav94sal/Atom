@@ -1,7 +1,12 @@
 /* TODO: Add sitewide styles */
-body {
+body, #root {
     margin: unset;
     font-family: "Roboto";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 ul {
@@ -10,9 +15,9 @@ ul {
 
 main {
     display: grid;
-    grid-template-columns: 205px 80%;
-    position: relative;
-    padding: 20px;
+    grid-template-columns: 230px 80%;
+    height: 92%;
+    max-height: 92%;
 }
 
 nav {
@@ -27,9 +32,13 @@ nav {
 }
 
 .sidebar {
+    padding: 0 20px;
     padding-top: 50px;
 }
 
 .scheduling {
-    padding: 20px;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: 50px 95%;
+    grid-template-rows: 70px 63%;
 }

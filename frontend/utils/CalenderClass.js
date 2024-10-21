@@ -54,7 +54,6 @@ class Calendr {
             const dayObj = cal[day]
             if (dayObj.class === 'active') {
                 this.week = week
-                // console.log(dayObj)
             }
             dayObj.week = week
             dayObj.wkday = weeks.wkdays[count]
@@ -125,6 +124,20 @@ class Calendr {
         }
 
         return newCal
+    }
+
+    timr() {
+        const times = []
+        for (let i = 1; i < 24; i++){
+            if (i < 12) {
+                times.push(`${i} AM`)
+            } else if (i === 12) {
+                times.push(`${i} PM`)
+            } else {
+                times.push(`${i - 12} PM`)
+            }
+        }
+        return times
     }
 
 }
