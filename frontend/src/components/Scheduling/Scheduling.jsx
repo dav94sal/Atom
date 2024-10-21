@@ -19,10 +19,16 @@ function Scheduling() {
             </div>
             <div className="time-rect">
                 <div className="time-label">
-                    {times.map(el => (<p>{ el }</p>))}
+                    {times.map(el => (<p key={el}>{ el }</p>))}
                 </div>
                 <div className="day-times">
-                    <p>Daytime</p>
+                    {thisWeek.map(day => (
+                        <div className="day">
+                            {times.map(el => (
+                                <div className="hour"></div>
+                            ))}
+                        </div>
+                    ))}
 
                 </div>
             </div>
