@@ -137,6 +137,7 @@ class Calendr {
                 times.push(`${i - 12} PM`)
             }
         }
+        times.push("")
         return times
     }
 
