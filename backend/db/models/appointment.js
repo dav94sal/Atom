@@ -10,15 +10,32 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Appointment.belongsTo(
+        models.User,
+        { foreignKey: "user_id"}
+      )
     }
   }
   Appointment.init({
-    date: DataTypes.DATE,
-    startTime: DataTypes.TIME,
-    endTime: DataTypes.TIME,
-    description: DataTypes.STRING,
-    user_id: DataTypes.INTEGER
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    startTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
+    endTime: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Appointment',
