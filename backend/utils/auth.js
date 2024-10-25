@@ -59,6 +59,12 @@ return jwt.verify(token, secret, null, async (err, jwtPayload) => {
 });
 };
 
+const decodeJWT = function (req) {
+    const { token } = req.cookies;
+    const newjwt = jwt.decode(token);
+    return newjwt.data
+  }
+
 // If there is no current user, return an error
 const requireAuth = function (req, _res, next) {
     if (req.user) return next();
@@ -70,4 +76,4 @@ const requireAuth = function (req, _res, next) {
     return next(err);
 }
 
-module.exports = { setTokenCookie, restoreUser, requireAuth };
+module.exports = { setTokenCookie, restoreUser, requireAuth, decodeJWT };
