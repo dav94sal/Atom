@@ -22,10 +22,10 @@ function Scheduling() {
                     {times.map(el => (<p key={el}>{ el }</p>))}
                 </div>
                 <div className="day-times">
-                    {thisWeek.map(day => (
-                        <div className="day">
-                            {times.map(el => (
-                                <div className="hour"></div>
+                    {thisWeek.map((_, i) => (
+                        <div className="day" key={`day${i}`}>
+                            {times.map((_, j) => (
+                                <div className="hour" key={`day${i}-hour${j}`}></div>
                             ))}
                         </div>
                     ))}
