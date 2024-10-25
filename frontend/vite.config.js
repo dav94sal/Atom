@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => ({
     })
   ],
   server: {
-    open: true  // open app in browser upon starting server
+    open: true,  // open app in browser upon starting server
+    proxy: {
+      '/api': 'http://localhost:8000'
+    },
   }
 }))
