@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { restoreUser } from './store/session';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm/';
+import SignupForm from './components/SignupForm/';
 import Navigation from './components/Navigation'
 
 function Layout() {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
     {
       path: "/login",
       element: <LoginForm />
-    }
+    },
+    {
+      path: "/signup",
+      element: <SignupForm />
+    },
   ]
   },
 ])

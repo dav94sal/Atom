@@ -14,11 +14,6 @@ function LoginForm() {
 
     if (sessionUser) return <Navigate to="/" replace={true} />
 
-    // useEffect(() => {
-    //     console.log(credential)
-    //     console.log(password)
-    // }, [credential, password])
-
     const handleSubmit = e => {
         e.preventDefault()
         const invalidations = {}
