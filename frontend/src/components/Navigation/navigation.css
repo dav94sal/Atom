@@ -58,3 +58,8 @@
 .left-nav {
     display: flex;
 }
+
+.profile-button {
+    display: flex;
+    padding: 0 10px;
+}

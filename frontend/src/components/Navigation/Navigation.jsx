@@ -1,11 +1,13 @@
-// import { FaBars } from "react-icons/fa6";
+import { useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { useMonth } from "../../context/MonthContext";
-import { useNavigate } from "react-router-dom";
+import ProfiileButton from "./ProfileButton";
 import "./navigation.css"
 
 function Navigation() {
+    const sessionUser = useSelector(state => state.session.user)
     const { today, setCurrentDate } = useMonth();
 
     const navigate = useNavigate()
@@ -14,14 +16,17 @@ function Navigation() {
         <>
             <div className="left-nav">
                 <div className="logo-container">
-                    <img
-                        className="logo"
-                        src="https://i.ibb.co/pbJS9hp/rm373batch15-element-02.jpg"
-                        alt="rm373batch15-element-02"
+                    <NavLink to="/">
+                        <img
+                            className="logo"
+                            src="https://i.ibb.co/pbJS9hp/rm373batch15-element-02.jpg"
+                            alt="rm373batch15-element-02"
                         />
+                    </NavLink>
                 </div>
-
-                <p className="title">Calendr</p>
+                <NavLink to="/">
+                    <p className="title">Calendr</p>
+                </NavLink>
 
                 <div className="today-but-container">
                     <button
@@ -48,10 +53,12 @@ function Navigation() {
                 <p className="current-month">{ today.stringr() }</p>
             </div>
 
-            <div className="login-signup-buttons">
-                <button onClick={() => navigate('/login')}>Login</button>
-                <button onClick={() => navigate('/signup')}>Signup</button>
-            </div>
+            {sessionUser? <ProfiileButton /> :
+                <div className="login-signup-buttons">
+                    <button onClick={() => navigate('/login')}>Login</button>
+                    <button onClick={() => navigate('/signup')}>Signup</button>
+                </div>
+            }
 
         </>
     )
