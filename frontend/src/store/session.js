@@ -27,8 +27,8 @@ export const loginBackend = (login) => async dispatch => {
     if (response.ok) {
         const user = await response.json()
         await dispatch(setUser(user))
-        return user
     }
+    return response
 }
 
 const defaultState = { user: null }

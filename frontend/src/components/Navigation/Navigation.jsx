@@ -2,11 +2,14 @@
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { useMonth } from "../../context/MonthContext";
+import { useNavigate } from "react-router-dom";
 import "./navigation.css"
 // import { useEffect } from "react";
 
 function Navigation() {
     const { today, setCurrentDate } = useMonth();
+
+    const navigate = useNavigate()
 
     // useEffect(() => {
 
@@ -14,6 +17,7 @@ function Navigation() {
 
     return (
         <>
+            {/* logo */}
             <div className="logo-container">
                 <img
                     className="logo"
@@ -46,9 +50,11 @@ function Navigation() {
                 </button>
             </div>
 
-                <p className="current-month">{ today.stringr() }</p>
-            {/* <div >
-            </div> */}
+            <p className="current-month">{ today.stringr() }</p>
+
+            <div>
+                <button onClick={() => navigate('/login')}>Login</button>
+            </div>
 
         </>
     )

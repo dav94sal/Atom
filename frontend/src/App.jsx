@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
+import LoginForm from './components/LoginForm/';
 import Navigation from './components/Navigation'
 
 function Layout() {
@@ -21,7 +22,12 @@ const router = createBrowserRouter([
     children: [{
       path: "/",
       element: <Home />
-    }]
+    },
+    {
+      path: "/login",
+      element: <LoginForm />
+    }
+  ]
   },
 ])
 
