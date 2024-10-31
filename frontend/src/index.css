@@ -24,6 +24,8 @@ nav {
     background-color: #000634;
     color: #ebe8f7;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     left: 0;
     right: 0;

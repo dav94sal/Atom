@@ -5,6 +5,7 @@
 
 .logo-container {
     padding: 7px;
+    height: 60px;
 }
 
 .logo {
@@ -52,4 +53,8 @@
 .current-month {
     margin: 18px 0;
     font-size: 18px;
+}
+
+.left-nav {
+    display: flex;
 }
