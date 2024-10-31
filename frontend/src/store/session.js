@@ -11,11 +11,11 @@ const setUser = user => {
     }
 }
 
-const removeUser = () => {
-    return {
-        type: REMOVE_USER
-    }
-}
+// const removeUser = () => {
+//     return {
+//         type: REMOVE_USER
+//     }
+// }
 
 // thunks
 export const loginBackend = (login) => async dispatch => {
@@ -27,6 +27,16 @@ export const loginBackend = (login) => async dispatch => {
     if (response.ok) {
         const user = await response.json()
         await dispatch(setUser(user))
+    }
+    return response
+}
+
+export const restoreUser = () => async dispatch => {
+    const response = await csrfFetch('/api/session')
+
+    if (response.ok) {
+        const data = await response.json()
+        await dispatch(setUser(data))
     }
     return response
 }
