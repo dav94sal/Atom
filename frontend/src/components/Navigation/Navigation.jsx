@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { useMonth } from "../../context/MonthContext";
@@ -9,8 +9,6 @@ import "./navigation.css"
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user)
     const { today, setCurrentDate } = useMonth();
-
-    const navigate = useNavigate()
 
     return (
         <>
@@ -53,10 +51,10 @@ function Navigation() {
                 <p className="current-month">{ today.stringr() }</p>
             </div>
 
-            {sessionUser? <ProfiileButton /> :
+            {sessionUser? <ProfiileButton user={sessionUser}/> :
                 <div className="login-signup-buttons">
-                    <button onClick={() => navigate('/login')}>Login</button>
-                    <button onClick={() => navigate('/signup')}>Signup</button>
+                    <NavLink to='/login'>Login</NavLink>
+                    <NavLink to='/signup'>Signup</NavLink>
                 </div>
             }
 
