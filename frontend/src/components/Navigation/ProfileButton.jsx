@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { FaAtom } from "react-icons/fa6";
 import { logout } from '../../store/session';
+import "./profile.css"
 
 function ProfiileButton({ user }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -36,15 +37,29 @@ function ProfiileButton({ user }) {
 
     return (
         <>
-            <button onClick={toggleMenu}>
+            <button
+                onClick={toggleMenu}
+                className='profile-but'
+            >
                 <Atom />
             </button>
             <ul className={ulClassName} ref={ulRef}>
-                <li>{user.username}</li>
-                <li>{user.firstName} {user.lastName}</li>
-                <li>{user.email}</li>
-                <li>
-                    <button onClick={handleLogout}>Log Out</button>
+                <li className='li-drop'><p>{user.email}</p></li>
+                <li className='logo-container li-drop'>
+                    <img
+                        className="logo"
+                        src="https://i.ibb.co/pbJS9hp/rm373batch15-element-02.jpg"
+                        alt="rm373batch15-element-02"
+                    />
+                </li>
+                <li className='li-drop'><h3>Hi, {user.firstName}!</h3></li>
+                <li className='li-drop'>
+                    <button
+                        onClick={handleLogout}
+                        className='logout-but'
+                    >
+                        Log Out
+                    </button>
                 </li>
             </ul>
         </>
@@ -53,8 +68,8 @@ function ProfiileButton({ user }) {
 
 const Atom = () => {
     return (
-        <div className="profile-button"
-            style={{ color: '#00ddff', fontSize: '40px'}}>
+        <div className="atom"
+            style={{ color: '#00ddff', fontSize: '40px',  display: 'flex'}}>
             <FaAtom />
         </div>
     )

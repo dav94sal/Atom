@@ -1,0 +1,39 @@
+.profile-but {
+    background-color: unset;
+    border: unset;
+    color: #c78ee3;
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+    width: 60px;
+}
+
+.profile-dropdown {
+    background-color: #2b2d38;
+    border-radius: 20px;
+    margin: unset;
+    padding: 10px;
+    position: fixed;
+    right: 10px;
+    top: 55px;
+    width: 250px;
+}
+
+.li-drop {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.li-drop p {
+    margin: unset;
+    margin-bottom: 10px;
+}
+
+.li-drop h3 {
+    margin: unset;
+}
+
+.hidden {
+    display: none;
+}

@@ -7,3 +7,13 @@
     width: 67px;
     margin: 10px;
 }
+
+.logout-but {
+    background-color: unset;
+    border: 1px solid #00ddff;
+    border-radius: 9px;
+    color: #c78ee3;
+    height: 30px;
+    width: 200px;
+    margin: 10px;
+}

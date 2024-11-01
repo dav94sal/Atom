@@ -60,12 +60,3 @@
     margin: 18px 0;
     font-size: 18px;
 }
-
-
-.profile-button {
-    display: flex;
-    padding: 0 10px;
-}
-.hidden {
-    display: none;
-}

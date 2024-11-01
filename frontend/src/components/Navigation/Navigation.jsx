@@ -55,7 +55,7 @@ function Navigation() {
             </div>
 
             {sessionUser? <ProfiileButton user={sessionUser}/> :
-                <div className="login-signup-buttons">
+                <div >
                     <OpenModalButton
                         modalComponent={<LoginFormModal />}
                         buttonText="Log In"
