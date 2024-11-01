@@ -6,6 +6,7 @@ import { useMonth } from "../../context/MonthContext";
 import ProfiileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import LoginFormModal from "../LoginForm";
+import SignupFormModal from "../SignupForm/SignupFormModal";
 import "./navigation.css"
 
 function Navigation() {
@@ -59,7 +60,10 @@ function Navigation() {
                         modalComponent={<LoginFormModal />}
                         buttonText="Log In"
                     />
-                    <NavLink to='/signup'>Signup</NavLink>
+                    <OpenModalButton
+                        modalComponent={<SignupFormModal />}
+                        buttonText="Sign Up"
+                    />
                 </div>
             }
 

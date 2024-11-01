@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signup } from "../../store/session";
+import { useModal } from "../../context/Modal";
+import './SignupForm.css';
 
-function SignupForm() {
+function SignupFormModal() {
     const [username, setUsername] = useState();
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
@@ -12,18 +13,17 @@ function SignupForm() {
     const [confirmPassword, setConfirmPassword] = useState();
     const [errors, setErrors] = useState({});
     const [hasSubmitted, setHasSubmitted] = useState(false);
-    const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
+    const { closeModal } = useModal();
 
-    if (sessionUser) return <Navigate to="/" replace={true} />
 
     const handleSubmit = e => {
         e.preventDefault()
         const invalidations = {}
-        setErrors({})
         setHasSubmitted(true)
 
         if (password === confirmPassword) {
+            setErrors({})
             const user = {
                 username,
                 firstName,
@@ -31,7 +31,9 @@ function SignupForm() {
                 email,
                 password
             }
-            return dispatch(signup(user)).catch(
+            return dispatch(signup(user))
+                .then(closeModal)
+                .catch(
                 async (res) => {
                   const data = await res.json();
                   if (data?.errors) setErrors(data.errors);
@@ -40,7 +42,7 @@ function SignupForm() {
         } else {
             invalidations.confirmPassword =
                 'Passwords do not match';
-            setErrors(invalidations);
+            return setErrors(invalidations);
         }
     };
 
@@ -114,4 +116,4 @@ function SignupForm() {
     )
 }
 
-export default SignupForm;
+export default SignupFormModal;
