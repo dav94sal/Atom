@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import MonthProvider from './context/MonthContext.jsx'
+import { Modal, ModalProvider } from './context/Modal';
 import { Provider } from 'react-redux';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import configureStore from './store';
@@ -20,10 +21,13 @@ if (import.meta.env.MODE !== 'production') {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <MonthProvider>
-        <App />
-      </MonthProvider>
-    </Provider>
+    <ModalProvider>
+      <Provider store={store}>
+        <MonthProvider>
+          <App />
+          <Modal />
+        </MonthProvider>
+      </Provider>
+    </ModalProvider>
   </React.StrictMode>
 )
