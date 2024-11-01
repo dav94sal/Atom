@@ -4,6 +4,8 @@ import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { useMonth } from "../../context/MonthContext";
 import ProfiileButton from "./ProfileButton";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import LoginFormModal from "../LoginForm";
 import "./navigation.css"
 
 function Navigation() {
@@ -23,7 +25,7 @@ function Navigation() {
                     </NavLink>
                 </div>
                 <NavLink to="/">
-                    <p className="title">Calendr</p>
+                    <p className="title">Atom</p>
                 </NavLink>
 
                 <div className="today-but-container">
@@ -53,7 +55,10 @@ function Navigation() {
 
             {sessionUser? <ProfiileButton user={sessionUser}/> :
                 <div className="login-signup-buttons">
-                    <NavLink to='/login'>Login</NavLink>
+                    <OpenModalButton
+                        modalComponent={<LoginFormModal />}
+                        buttonText="Log In"
+                    />
                     <NavLink to='/signup'>Signup</NavLink>
                 </div>
             }

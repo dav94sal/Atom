@@ -3,7 +3,6 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { restoreUser } from './store/session';
 import Home from './components/Home';
-import LoginForm from './components/LoginForm/';
 import SignupForm from './components/SignupForm/';
 import Navigation from './components/Navigation'
 
@@ -34,10 +33,6 @@ const router = createBrowserRouter([
     children: [{
       path: "/",
       element: <Home />
-    },
-    {
-      path: "/login",
-      element: <LoginForm />
     },
     {
       path: "/signup",
