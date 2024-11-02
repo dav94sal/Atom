@@ -2,9 +2,9 @@ import { useMonth } from "../../context/MonthContext";
 import './scheduling.css'
 
 function Scheduling() {
-    const { today, week, month } = useMonth()
-    const thisWeek = today.weeks[week]
-    const times = today.timr()
+    const { currentDate, week, month } = useMonth()
+    const thisWeek = currentDate.weeks[week]
+    const times = currentDate.timr()
 
     return (
         <>

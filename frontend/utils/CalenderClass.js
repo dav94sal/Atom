@@ -35,6 +35,7 @@ class Calendr {
 
     weekr() {
         const cal = this.calendr
+        // Object to hold days of the week
         const weeks = {
             1: [],
             2: [],
@@ -45,6 +46,7 @@ class Calendr {
             wkdays: ['SUN','MON','TUE','WED','THU','FRI','SAT']
         };
 
+        // Loop to map days into weeks
         let day = 0
         let week = 1
 
@@ -68,6 +70,7 @@ class Calendr {
             day++;
         }
 
+        // return weeks obj
         return weeks
     }
 

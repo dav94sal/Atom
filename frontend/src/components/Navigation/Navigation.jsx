@@ -1,17 +1,16 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { FaAngleLeft } from "react-icons/fa6";
-import { FaAngleRight } from "react-icons/fa6";
 import { useMonth } from "../../context/MonthContext";
 import ProfiileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import LoginFormModal from "../LoginForm";
 import SignupFormModal from "../SignupForm/SignupFormModal";
+import WeekButtons from "./WeekButtons";
 import "./navigation.css"
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user)
-    const { today, setCurrentDate } = useMonth();
+    const { currentDate, setCurrentDate, week, setWeek } = useMonth();
 
     return (
         <>
@@ -32,26 +31,13 @@ function Navigation() {
                 <div className="today-but-container">
                     <button
                         className="today-but"
-                        onClick={() => setCurrentDate(today)}
+                        onClick={() => setCurrentDate(CurrentDate)}
                         >Today</button>
                 </div>
 
-                <div className="week-but-container">
-                    <button
-                        className="week-but"
-                        // onClick={() => setMonth(month - 1)}
-                        >
-                        <FaAngleLeft className="select-week"/>
-                    </button>
-                    <button
-                        className="week-but"
-                        // onClick={() => setMonth(month + 1)}
-                        >
-                        <FaAngleRight className="select-week"/>
-                    </button>
-                </div>
+                <WeekButtons />
 
-                <p className="current-month">{ today.stringr() }</p>
+                <p className="current-month">{ currentDate.stringr() }</p>
             </div>
 
             {sessionUser? <ProfiileButton user={sessionUser}/> :
