@@ -10,7 +10,7 @@ import "./navigation.css"
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user)
-    const { currentDate, setCurrentDate, week, setWeek } = useMonth();
+    const { currentDate, setCurrentDate} = useMonth();
 
     return (
         <>
@@ -31,7 +31,7 @@ function Navigation() {
                 <div className="today-but-container">
                     <button
                         className="today-but"
-                        onClick={() => setCurrentDate(CurrentDate)}
+                        onClick={() => setCurrentDate(currentDate.setToday())}
                         >Today</button>
                 </div>
 
@@ -39,8 +39,9 @@ function Navigation() {
 
             </div>
 
-            {sessionUser? <ProfiileButton user={sessionUser}/> :
-                <div >
+            {sessionUser?
+                <ProfiileButton user={sessionUser}/>
+                : <div >
                     <OpenModalButton
                         modalComponent={<LoginFormModal />}
                         buttonText="Log In"

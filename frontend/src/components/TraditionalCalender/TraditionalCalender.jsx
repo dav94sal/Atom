@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { useMonth } from "../../context/MonthContext";
@@ -6,17 +6,23 @@ import Calendr from "../../../utils/CalenderClass";
 import "./traditional-calender.css"
 
 function TraditionalCalender() {
-    const { currentDate, setCurrentDate, month, setMonth, year, date } = useMonth()
+    const { currentDate, year } = useMonth();
+    const [currentCal, setCurrentCal] = useState(currentDate)
+    const [month, setMonth] = useState(currentCal.month);
 
     useEffect(() => {
-        const newDate = new Calendr(date, year, month)
-        setCurrentDate(newDate)
-    }, [month, setCurrentDate, date, year])
+        const newDate = new Calendr(new Date(year, month))
+        setCurrentCal(newDate)
+    }, [currentDate, month, setCurrentCal, year])
+
+    useEffect(() => {
+        setMonth(currentDate.month)
+    }, [currentDate.month, setMonth])
 
     return(
         <>
             <div className="month">
-                <div>{currentDate.stringr()}</div>
+                <div>{currentCal.stringr()}</div>
                 <div>
                     <button
                         className="month-but"
@@ -42,7 +48,7 @@ function TraditionalCalender() {
                 <li scope="col" className="inactive">S</li>
             </ul>
             <ul className="days">
-                {currentDate.calendr.map((el, i) => {
+                {currentCal.calendr.map((el, i) => {
                     return <li className={el.class} key={i}>{ el.day }</li>
                 })}
             </ul>

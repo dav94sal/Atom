@@ -13,7 +13,9 @@ function Scheduling() {
                 {thisWeek.map(day => (
                     <div className="weekday" key={`${month} ${day.day}`}>
                         <p>{ day.wkday }</p>
-                        <div>{ day.day }</div>
+                        <div className={ day.class === 'active' ? 'today' : '' }>
+                            { day.day }
+                        </div>
                     </div>
                 ))}
             </div>
