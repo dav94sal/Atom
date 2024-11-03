@@ -1,15 +1,23 @@
+import { useEffect } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6"
 import { useMonth } from "../../context/MonthContext";
+import Calendr from "../../../utils/CalenderClass";
 import "./navigation.css"
 
 function WeekButtons () {
-    const { week, setWeek,  month, setMonth } = useMonth();
+    const { week, setWeek,  month, setMonth, year, currentDate, setCurrentDate } = useMonth();
+
+    useEffect(() => {
+        setCurrentDate(new Calendr(new Date(), year, month))
+        console.log(currentDate)
+    }, [month, year, setCurrentDate])
 
     const handleLeft = () => {
         if (week === 1) {
             setMonth(month - 1)
             setWeek(6)
+            return
         }
         setWeek(week - 1)
     }
@@ -29,6 +37,9 @@ function WeekButtons () {
                 >
                     <FaAngleRight className="select-week"/>
                 </button>
+
+                <p className="current-month">{ currentDate.stringr() }</p>
+
             </div>
         </>
     )

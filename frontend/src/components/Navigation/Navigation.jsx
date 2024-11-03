@@ -37,7 +37,6 @@ function Navigation() {
 
                 <WeekButtons />
 
-                <p className="current-month">{ currentDate.stringr() }</p>
             </div>
 
             {sessionUser? <ProfiileButton user={sessionUser}/> :
