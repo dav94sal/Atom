@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import MonthProvider from './context/MonthContext.jsx'
+import DateProvider from './context/DateContext.jsx';
 import { Modal, ModalProvider } from './context/Modal';
 import { Provider } from 'react-redux';
 import { restoreCSRF, csrfFetch } from './store/csrf';
@@ -23,10 +23,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ModalProvider>
       <Provider store={store}>
-        <MonthProvider>
+        <DateProvider>
           <App />
           <Modal />
-        </MonthProvider>
+        </DateProvider>
       </Provider>
     </ModalProvider>
   </React.StrictMode>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6"
-import { useMonth } from "../../context/MonthContext";
+import { useDate } from "../../context/DateContext";
 import Calendr from "../../../utils/CalenderClass";
 import "./navigation.css"
 
 function WeekButtons () {
-    const { week, setWeek, year, currentDate, setCurrentDate } = useMonth();
+    const { week, setWeek, year, currentDate, setCurrentDate } = useDate();
     const [month, setMonth] = useState(currentDate.month);
     const [indicator, setIndicator] = useState(currentDate.stringr())
 

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { useMonth } from "../../context/MonthContext";
+import { useDate } from "../../context/DateContext";
 import ProfiileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import LoginFormModal from "../LoginForm";
@@ -10,7 +10,7 @@ import "./navigation.css"
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user)
-    const { currentDate, setCurrentDate } = useMonth();
+    const { currentDate, setCurrentDate } = useDate();
 
     return (
         <>

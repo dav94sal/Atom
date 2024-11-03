@@ -1,11 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import Calendr from "../../utils/CalenderClass";
 
-export const MonthContext = createContext();
+export const DateContext = createContext();
 
-export const useMonth = () => useContext(MonthContext);
+export const useDate = () => useContext(DateContext);
 
-const MonthProvider = props => {
+const DateProvider = props => {
     const date = new Date()
     const [currentDate, setCurrentDate] = useState(new Calendr(new Date()))
     const [year, setYear] = useState(date.getFullYear())
@@ -18,10 +18,10 @@ const MonthProvider = props => {
     }
 
     return (
-        <MonthContext.Provider value={value}>
+        <DateContext.Provider value={value}>
             {props.children}
-        </MonthContext.Provider>
+        </DateContext.Provider>
     )
 }
 
-export default MonthProvider;
+export default DateProvider;

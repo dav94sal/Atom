@@ -1,8 +1,8 @@
-import { useMonth } from "../../context/MonthContext";
+import { useDate } from "../../context/DateContext";
 import './scheduling.css'
 
 function Scheduling() {
-    const { currentDate, week } = useMonth()
+    const { currentDate, week } = useDate()
     const thisWeek = currentDate.weeks[week]
     const times = currentDate.timr()
 
