@@ -6,18 +6,13 @@ export const MonthContext = createContext();
 export const useMonth = () => useContext(MonthContext);
 
 const MonthProvider = props => {
-    const [date, setDate] = useState(new Date())
+    const date = new Date()
+    const [currentDate, setCurrentDate] = useState(new Calendr(new Date()))
     const [year, setYear] = useState(date.getFullYear())
-    const [month, setMonth] = useState(date.getMonth())
-    const [today, setToday] = useState(new Calendr(new Date()))
-    const [week, setWeek] = useState(today.week)
-    const [currentDate, setCurrentDate] = useState(today)
+    const [week, setWeek] = useState(currentDate.week)
 
     const value = {
-        date, setDate,
-        today, setToday,
         year, setYear,
-        month, setMonth,
         week, setWeek,
         currentDate, setCurrentDate
     }

@@ -10,7 +10,7 @@ import "./navigation.css"
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user)
-    const { currentDate, setCurrentDate} = useMonth();
+    const { currentDate, setCurrentDate } = useMonth();
 
     return (
         <>

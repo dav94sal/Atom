@@ -2,7 +2,7 @@ import { useMonth } from "../../context/MonthContext";
 import './scheduling.css'
 
 function Scheduling() {
-    const { currentDate, week, month } = useMonth()
+    const { currentDate, week } = useMonth()
     const thisWeek = currentDate.weeks[week]
     const times = currentDate.timr()
 
@@ -11,7 +11,7 @@ function Scheduling() {
             <div className="tz"><p>TZ</p></div>
             <div className="head-week-container">
                 {thisWeek.map(day => (
-                    <div className="weekday" key={`${month} ${day.day}`}>
+                    <div className="weekday" key={`${currentDate.month} ${day.day}`}>
                         <p>{ day.wkday }</p>
                         <div className={ day.class === 'active' ? 'today' : '' }>
                             { day.day }
