@@ -10,7 +10,13 @@ import "./navigation.css"
 
 function Navigation() {
     const sessionUser = useSelector(state => state.session.user)
-    const { currentDate, setCurrentDate } = useDate();
+    const { currentDate, setCurrentDate, setWeek } = useDate();
+
+    const handleClick = () => {
+        const today = currentDate.setToday()
+        setCurrentDate(today)
+        setWeek(today.week)
+    }
 
     return (
         <>
@@ -31,7 +37,7 @@ function Navigation() {
                 <div className="today-but-container">
                     <button
                         className="today-but"
-                        onClick={() => setCurrentDate(currentDate.setToday())}
+                        onClick={handleClick}
                         >Today</button>
                 </div>
 
