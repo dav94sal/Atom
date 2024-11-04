@@ -17,3 +17,10 @@
     width: 200px;
     margin: 10px;
 }
+
+.hour-button {
+    background-color: unset;
+    border: unset;
+    height: 100%;
+    width: 100%;
+}

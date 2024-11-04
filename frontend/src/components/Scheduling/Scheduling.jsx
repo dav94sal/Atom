@@ -1,4 +1,5 @@
 import { useDate } from "../../context/DateContext";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import './scheduling.css'
 
 function Scheduling() {
@@ -27,7 +28,12 @@ function Scheduling() {
                     {thisWeek.map((_, i) => (
                         <div className="day" key={`day${i}`}>
                             {times.map((_, j) => (
-                                <div className="hour" key={`day${i}-hour${j}`}></div>
+                                <div className="hours" key={`day${i}-hour${j}`}>
+                                    <OpenModalButton
+                                        // modalComponent={}
+                                        buttonText=''
+                                        htmlClass='hour-button'                                    />
+                                </div>
                             ))}
                         </div>
                     ))}
