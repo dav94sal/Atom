@@ -1,6 +1,6 @@
 import { useDate } from "../../context/DateContext";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
-import ApptForm from "../AppointmentForm/ApptForm";
+import NotesForm from "../NotesForm/NotesForm";
 import './scheduling.css'
 
 function Scheduling() {
@@ -32,7 +32,7 @@ function Scheduling() {
                                 <div className="hours" key={`day${i}-hour${j}`}>
                                     <OpenModalButton
                                         modalComponent={
-                                            <ApptForm day={thisWeek[i].day} hour={times[j]} />
+                                            <NotesForm />
                                         }
                                         buttonText=''
                                         htmlClass='hour-button'
