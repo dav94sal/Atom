@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import LoginFormModal from "../LoginForm";
 import SignupFormModal from "../SignupForm/SignupFormModal";
 import WeekButtons from "./WeekButtons";
+import NotesForm from "../NotesForm/NotesForm";
 import "./navigation.css"
 
 function Navigation() {
@@ -46,7 +47,14 @@ function Navigation() {
             </div>
 
             {sessionUser?
-                <ProfiileButton user={sessionUser}/>
+                <div className="user-actions">
+                    <OpenModalButton
+                        modalComponent={<NotesForm />}
+                        buttonText="New Note"
+                        htmlClass="note-button"
+                    />
+                    <ProfiileButton user={sessionUser}/>
+                </div>
                 : <div >
                     <OpenModalButton
                         modalComponent={<LoginFormModal />}
