@@ -1,0 +1,14 @@
+.weekly-content {
+    padding: 20px 10px;
+    display: grid;
+    grid-template-rows: 70px 63%;
+}
+
+.head-week-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.weekday {
+    text-align: center;
+}

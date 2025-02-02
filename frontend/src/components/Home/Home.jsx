@@ -1,8 +1,11 @@
 import TraditionalCalender from "../TraditionalCalender"
-import Scheduling from "../Scheduling/Scheduling";
+import { useDate } from "../../context/DateContext";
 import "./home.css";
 
 function Home() {
+        const { currentDate, week } = useDate()
+        const thisWeek = currentDate.weeks[week]
+
     return (
         <>
             <div className="sidebar">
@@ -10,8 +13,22 @@ function Home() {
                     <TraditionalCalender />
                 </div>
             </div>
-            <div className="scheduling">
-                <Scheduling />
+
+            <div className="weekly-content">
+                <div className="head-week-container">
+                    {thisWeek.map(day => (
+                        <div className="weekday" key={`${currentDate.month} ${day.day}`}>
+                            <p>{ day.wkday }</p>
+                            <div className={ day.class === 'active' ? 'today' : '' }>
+                                { day.day }
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="time-rect">
+                    
+                </div>
             </div>
         </>
     )

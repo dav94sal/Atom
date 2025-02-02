@@ -83,7 +83,7 @@ class Calendr {
         // Get the last date of the previous month
         let monthlastdate = new Date(this.year, this.month, 0).getDate();
 
-        // Variable to store the generated calendar HTML
+        // Variable to store the generated calendar Objects
         let newCal = [];
 
         // Loop to add the last dates of the previous month
@@ -105,7 +105,6 @@ class Calendr {
                 ? "active"
                 : "";
             newCal.push({
-                // `<li class="${isToday}">${i}</li>`
                 class: isToday,
                 day: i,
                 current: true
