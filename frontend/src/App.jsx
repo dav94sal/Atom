@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { restoreUser } from './store/session';
 import Home from './components/Home';
 import Navigation from './components/Navigation'
+import Scheduling from './components/Scheduling/Scheduling';
 
 function Layout() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -29,10 +30,15 @@ function Layout() {
 const router = createBrowserRouter([
   {
     element: <Layout />,
-    children: [{
-      path: "/",
-      element: <Home />
-    },
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: '/schedule',
+        element: <Scheduling />
+      }
   ]
   },
 ])
