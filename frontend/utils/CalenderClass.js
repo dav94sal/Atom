@@ -1,8 +1,9 @@
 class Calendr {
-    constructor(date, year, month) {
+    constructor(date) {
         this.date = date;
-        this.year = year;
-        this.month = month;
+        this.year = date.getFullYear();
+        this.month = date.getMonth();
+        this.today = new Date();
         this.calendr = this.generateCalender();
         this.months = [
             "January",
@@ -26,15 +27,13 @@ class Calendr {
         return `${this.months[this.month]} ${this.year}`
     }
 
-    // static today() {
-    //     const date = new Date()
-    //     const year = date.getFullYear()
-    //     const month = date.getFullMonth()
-    //     return new Calendr(date, year, month)
-    // }
+    setToday() {
+        return new Calendr(new Date())
+    }
 
     weekr() {
         const cal = this.calendr
+        // Object to hold days of the week
         const weeks = {
             1: [],
             2: [],
@@ -45,12 +44,13 @@ class Calendr {
             wkdays: ['SUN','MON','TUE','WED','THU','FRI','SAT']
         };
 
+        // Loop to map days into weeks
         let day = 0
         let week = 1
 
         let count = 0
 
-        while (day < cal.length) {
+        while (day < cal.length && week < 7) {
             const dayObj = cal[day]
             if (dayObj.class === 'active') {
                 this.week = week
@@ -67,7 +67,6 @@ class Calendr {
 
             day++;
         }
-
         return weeks
     }
 
@@ -84,7 +83,7 @@ class Calendr {
         // Get the last date of the previous month
         let monthlastdate = new Date(this.year, this.month, 0).getDate();
 
-        // Variable to store the generated calendar HTML
+        // Variable to store the generated calendar Objects
         let newCal = [];
 
         // Loop to add the last dates of the previous month
@@ -100,13 +99,12 @@ class Calendr {
         for (let i = 1; i <= lastdate; i++) {
 
             // Check if the current date is today
-            let isToday = i === this.date.getDate()
+            let isToday = i === this.today.getDate()
                 && this.month === new Date().getMonth()
                 && this.year === new Date().getFullYear()
                 ? "active"
                 : "";
             newCal.push({
-                // `<li class="${isToday}">${i}</li>`
                 class: isToday,
                 day: i,
                 current: true
@@ -114,7 +112,7 @@ class Calendr {
         }
 
         // Loop to add the first dates of the next month
-        for (let i = dayend; i < 13; i++) {
+        for (let i = dayend; newCal.length < 42; i++) {
             `<li class="inactive">${i - dayend + 1}</li>`
             newCal.push({
                 class: "inactive",

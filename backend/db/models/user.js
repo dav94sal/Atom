@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasMany(
-        models.Appointment,
+        models.Note,
         { foreignKey: "user_id", onDelete: 'cascade', hooks: true}
       )
     }
@@ -41,6 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         len: [3, 256],
         isEmail: true

@@ -1,19 +1,23 @@
-import { useMonth } from "../../context/MonthContext";
+import { useDate } from "../../context/DateContext";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import NotesForm from "../NotesForm/NotesForm";
 import './scheduling.css'
 
 function Scheduling() {
-    const { today, week, month } = useMonth()
-    const thisWeek = today.weeks[week]
-    const times = today.timr()
+    const { currentDate, week } = useDate()
+    const thisWeek = currentDate.weeks[week]
+    const times = currentDate.timr()
 
     return (
         <>
             <div className="tz"><p>TZ</p></div>
             <div className="head-week-container">
                 {thisWeek.map(day => (
-                    <div className="weekday" key={`${month} ${day.day}`}>
+                    <div className="weekday" key={`${currentDate.month} ${day.day}`}>
                         <p>{ day.wkday }</p>
-                        <div>{ day.day }</div>
+                        <div className={ day.class === 'active' ? 'today' : '' }>
+                            { day.day }
+                        </div>
                     </div>
                 ))}
             </div>
@@ -22,10 +26,18 @@ function Scheduling() {
                     {times.map(el => (<p key={el}>{ el }</p>))}
                 </div>
                 <div className="day-times">
-                    {thisWeek.map(day => (
-                        <div className="day">
-                            {times.map(el => (
-                                <div className="hour"></div>
+                    {thisWeek.map((_, i) => (
+                        <div className="day" key={`day${i}`}>
+                            {times.map((_, j) => (
+                                <div className="hours" key={`day${i}-hour${j}`}>
+                                    <OpenModalButton
+                                        modalComponent={
+                                            <NotesForm />
+                                        }
+                                        buttonText=''
+                                        htmlClass='hour-button'
+                                    />
+                                </div>
                             ))}
                         </div>
                     ))}

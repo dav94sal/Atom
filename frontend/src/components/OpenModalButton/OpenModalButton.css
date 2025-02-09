@@ -1,0 +1,36 @@
+.modal-but {
+    background-color: unset;
+    border: 1px solid #00ddff;
+    border-radius: 9px;
+    color: #c78ee3;
+    height: 25px;
+    width: 67px;
+    margin: 10px;
+}
+
+.logout-but {
+    background-color: unset;
+    border: 1px solid #00ddff;
+    border-radius: 9px;
+    color: #c78ee3;
+    height: 30px;
+    width: 200px;
+    margin: 10px;
+}
+
+.hour-button {
+    background-color: unset;
+    border: unset;
+    height: 100%;
+    width: 100%;
+}
+
+.note-button {
+    background-color: unset;
+    border: 1px solid #00ddff;
+    border-radius: 9px;
+    color: #c78ee3;
+    height: 25px;
+    width: 90px;
+    margin: 10px;
+}

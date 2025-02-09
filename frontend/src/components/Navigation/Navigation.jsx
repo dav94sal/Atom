@@ -1,54 +1,71 @@
-// import { FaBars } from "react-icons/fa6";
-import { FaAngleLeft } from "react-icons/fa6";
-import { FaAngleRight } from "react-icons/fa6";
-import { useMonth } from "../../context/MonthContext";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { useDate } from "../../context/DateContext";
+import ProfiileButton from "./ProfileButton";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import LoginFormModal from "../LoginForm";
+import SignupFormModal from "../SignupForm/SignupFormModal";
+import WeekButtons from "./WeekButtons";
+import NotesForm from "../NotesForm/NotesForm";
 import "./navigation.css"
-// import { useEffect } from "react";
 
 function Navigation() {
-    const { today, setCurrentDate } = useMonth();
+    const sessionUser = useSelector(state => state.session.user)
+    const { currentDate, setCurrentDate, setWeek } = useDate();
 
-    // useEffect(() => {
-
-    // })
+    const handleClick = () => {
+        const today = currentDate.setToday()
+        setCurrentDate(today)
+        setWeek(today.week)
+    }
 
     return (
         <>
-            <div className="logo-container">
-                <img
-                    className="logo"
-                    src="https://i.ibb.co/pbJS9hp/rm373batch15-element-02.jpg"
-                    alt="rm373batch15-element-02"
-                />
+            <div className="left-nav">
+                <div className="logo-container">
+                    <NavLink to="/">
+                        <img
+                            className="logo"
+                            src="https://i.ibb.co/pbJS9hp/rm373batch15-element-02.jpg"
+                            alt="rm373batch15-element-02"
+                        />
+                    </NavLink>
+                </div>
+                <NavLink to="/">
+                    <p className="title">Atom</p>
+                </NavLink>
+
+                <div className="today-but-container">
+                    <button
+                        className="today-but"
+                        onClick={handleClick}
+                        >Today</button>
+                </div>
+
+                <WeekButtons />
+
             </div>
 
-            <p className="title">Calendr</p>
-
-            <div className="today-but-container">
-                <button
-                    className="today-but"
-                    onClick={() => setCurrentDate(today)}
-                >Today</button>
-            </div>
-
-            <div className="week-but-container">
-                <button
-                    className="week-but"
-                    // onClick={() => setMonth(month - 1)}
-                >
-                    <FaAngleLeft className="select-week"/>
-                </button>
-                <button
-                    className="week-but"
-                    // onClick={() => setMonth(month + 1)}
-                >
-                    <FaAngleRight className="select-week"/>
-                </button>
-            </div>
-
-                <p className="current-month">{ today.stringr() }</p>
-            {/* <div >
-            </div> */}
+            {sessionUser?
+                <div className="user-actions">
+                    <OpenModalButton
+                        modalComponent={<NotesForm />}
+                        buttonText="New Note"
+                        htmlClass="note-button"
+                    />
+                    <ProfiileButton user={sessionUser}/>
+                </div>
+                : <div >
+                    <OpenModalButton
+                        modalComponent={<LoginFormModal />}
+                        buttonText="Log In"
+                    />
+                    <OpenModalButton
+                        modalComponent={<SignupFormModal />}
+                        buttonText="Sign Up"
+                    />
+                </div>
+            }
 
         </>
     )

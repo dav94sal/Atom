@@ -1,21 +1,28 @@
+.left-nav {
+    display: flex;
+    align-items: center;
+}
+
 .today-but,
 .current-month {
     color: #c78ee3;
 }
 
 .logo-container {
-    padding: 7px;
+    height: 60px;
 }
 
 .logo {
     border-radius: 50%;
     height: 100%;
+    margin: 0 10px;
 }
 
 .title {
-    margin: 15px 6px;
-    font-size: 24px;
     color: #00ddff;
+    font-size: 24px;
+    margin: 15px 6px;
+    margin-left: 20px;
 }
 
 .today-but-container {
@@ -25,9 +32,9 @@
 
 .today-but {
     background-color: unset;
-    border-radius: 7px;
+    border-radius: 9px;
     border: 1px solid #00ddff;
-    height: 100%;
+    height: 29px;
     width: 65px;
 }
 
@@ -52,4 +59,8 @@
 .current-month {
     margin: 18px 0;
     font-size: 18px;
+}
+
+.user-actions {
+    display: flex;
 }
