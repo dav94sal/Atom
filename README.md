@@ -1,3 +1,5 @@
+Coming Soon!
+
 # Atom
 
 [Live]() - *Not yet active
@@ -23,22 +25,3 @@ Extensive documentation available at the [Atom Wiki](https://github.com/dav94sal
 - Sequelize
 - PostgreSQL
 
-## Screenshots
-
-Calender
-![Home Page]()
-
-## Usage
-
-1. Install dependencies.
-
-   ```bash
-   pipenv install -r requirements.txt
-   ```
-
-2. Create your __.env__ file based on the example.
-
-3. The SQLite3 database connection URL must be in the __.env__ file.
-
-4. Replace the value for `SCHEMA` with a unique name, **make sure to use snake_case
-   convention.**
