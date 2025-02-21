@@ -1,10 +1,15 @@
-import TraditionalCalender from "../TraditionalCalender"
+import TraditionalCalender from "../TraditionalCalender";
 import { useDate } from "../../context/DateContext";
+import { useSelector } from "react-redux";
+import LandingPage from "../LandingPage";
 import "./home.css";
 
 function Home() {
-        const { currentDate, week } = useDate()
-        const thisWeek = currentDate.weeks[week]
+    const user = useSelector(state => state.session.user)
+    const { currentDate, week } = useDate();
+    const thisWeek = currentDate.weeks[week];
+
+    if (!user) return <LandingPage />
 
     return (
         <>
@@ -26,9 +31,9 @@ function Home() {
                     ))}
                 </div>
 
-                <div className="time-rect">
-                    
-                </div>
+                {/* <div className="time-rect">
+
+                </div> */}
             </div>
         </>
     )
