@@ -1,4 +1,5 @@
 import TraditionalCalender from "../TraditionalCalender";
+import Scheduling from "../Scheduling/Scheduling";
 import { useDate } from "../../context/DateContext";
 import { useSelector } from "react-redux";
 import LandingPage from "../LandingPage";
@@ -20,7 +21,9 @@ function Home() {
             </div>
 
             <div className="weekly-content">
-                <div className="head-week-container">
+                <Scheduling />
+
+                {/* <div className="head-week-container">
                     {thisWeek.map(day => (
                         <div className="weekday" key={`${currentDate.month} ${day.day}`}>
                             <p>{ day.wkday }</p>
@@ -29,10 +32,6 @@ function Home() {
                             </div>
                         </div>
                     ))}
-                </div>
-
-                {/* <div className="time-rect">
-
                 </div> */}
             </div>
         </div>

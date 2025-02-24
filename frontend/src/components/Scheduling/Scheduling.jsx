@@ -1,17 +1,18 @@
 import { useDate } from "../../context/DateContext";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
-import NotesForm from "../NotesForm/NotesForm";
+import ApptForm from "../AppointmentForm"
 import './scheduling.css'
 
 function Scheduling() {
     const { currentDate, week } = useDate()
     const thisWeek = currentDate.weeks[week]
     const times = currentDate.timr()
+    // console.log(thisWeek)
 
     return (
         <>
-            <div className="tz"><p>TZ</p></div>
             <div className="head-week-container">
+                <div className="tz"><p>TZ</p></div>
                 {thisWeek.map(day => (
                     <div className="weekday" key={`${currentDate.month} ${day.day}`}>
                         <p>{ day.wkday }</p>
@@ -26,13 +27,13 @@ function Scheduling() {
                     {times.map(el => (<p key={el}>{ el }</p>))}
                 </div>
                 <div className="day-times">
-                    {thisWeek.map((_, i) => (
+                    {thisWeek.map((day, i) => (
                         <div className="day" key={`day${i}`}>
-                            {times.map((_, j) => (
+                            {times.map((hour, j) => (
                                 <div className="hours" key={`day${i}-hour${j}`}>
                                     <OpenModalButton
                                         modalComponent={
-                                            <NotesForm />
+                                            <ApptForm day={day.day} hour={hour}/>
                                         }
                                         buttonText=''
                                         htmlClass='hour-button'
