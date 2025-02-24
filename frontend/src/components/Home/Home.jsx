@@ -12,7 +12,7 @@ function Home() {
     if (!user) return <LandingPage />
 
     return (
-        <>
+        <div className="home-grid">
             <div className="sidebar">
                 <div className="traditional-calender">
                     <TraditionalCalender />
@@ -35,7 +35,7 @@ function Home() {
 
                 </div> */}
             </div>
-        </>
+        </div>
     )
 }
 

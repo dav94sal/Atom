@@ -6,7 +6,7 @@ import "./landing-page.css"
 
 function LandingPage() {
     return (
-        <>
+        <div className="landing-grid">
             <section className="sec-1-welcome"> {/* Welcome */}
                 <div className="welcome card">
                     <h2>Welcome to Atom!</h2>
@@ -37,7 +37,13 @@ function LandingPage() {
                     </p>
                 </div>
             </section>
-        </>
+            <section className="sec-2-calender center-flex text-white">
+                <div className="center-flex">
+                    <img src="/public/android-chrome-192x192.png" />
+                    {/* <p>Atom</p> */}
+                </div>
+            </section>
+        </div>
 
     )
 }
