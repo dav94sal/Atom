@@ -30,32 +30,41 @@ function ApptForm({ day, hour }) {
 
     const [date, setDate] = useState(`${currentDate.year}-${month}-${day}`);
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+    }
+
     return (
-        <div className='form-container'>
-            <form>
-                <input
-                    type='text'
-                    placeholder='Add title'
-                    value={title}
-                    onChange={e => setTitle(e.target.value)}
-                />
-                <input
-                    type='date'
-                    value={date}
-                    onChange={e => setDate(e.target.value)}
-                />
-                <input
-                    type='time'
-                    value={startTime}
-                    onChange={e => setStartTime(e.target.value)}
-                />
-                <input
-                    type='time'
-                    value={endTime}
-                    onChange={e => setEndTime(e.target.value)}
-                />
-            </form>
-        </div>
+        <form className='form appt-size' onSubmit={handleSubmit}>
+            <h2 className='text-white'>Add your appointment</h2>
+            <input
+                type='text'
+                placeholder='Add title'
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+            />
+            <input
+                type='date'
+                value={date}
+                onChange={e => setDate(e.target.value)}
+            />
+            <input
+                type='time'
+                value={startTime}
+                onChange={e => setStartTime(e.target.value)}
+            />
+            <input
+                type='time'
+                value={endTime}
+                onChange={e => setEndTime(e.target.value)}
+            />
+            <button
+                type='submit'
+                className='modal-but'>
+                Done
+            </button>
+        </form>
     )
 }
 

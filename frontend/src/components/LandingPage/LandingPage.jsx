@@ -11,7 +11,13 @@ function LandingPage() {
                 <div className="welcome card">
                     <h2>Welcome to Atom!</h2>
                     <p>Your personal organizational tool.</p>
-                    <button>Get Started</button>
+                    <div className="center-flex">
+                        <OpenModalButton
+                            modalComponent={<LoginForm />}
+                            buttonText="Get Started"
+                            htmlClass="modal-but wide-but"
+                            />
+                    </div>
                     <p className="center-flex">
                         <span>
                             <OpenModalButton

@@ -8,6 +8,10 @@
     margin: 10px;
 }
 
+.modal-but:hover {
+    cursor: pointer;
+}
+
 .logout-but {
     background-color: unset;
     border: 1px solid #00ddff;

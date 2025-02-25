@@ -33,6 +33,13 @@ nav {
     height: 60px;
 }
 
+input {
+    border-radius: 7px;
+    height: 30px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
 .sidebar {
     padding: 0 20px;
     padding-top: 50px;
@@ -45,4 +52,12 @@ nav {
 
 .inactive {
     color: rgba(82, 81, 81, 0.555);
+}
+
+#modal-content {
+    background-color: #000634;
+    border-radius: 25px;
+    min-height: 230px;
+    width: 400px;
+    padding: 10px;
 }

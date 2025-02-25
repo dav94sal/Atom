@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { loginBackend } from "../../store/session";
 import { useModal } from "../../context/Modal";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import SignupFormModal from "../SignupForm";
 import "./LoginForm.css";
 
 function LoginFormModal() {
@@ -46,10 +48,31 @@ function LoginFormModal() {
         }
     }
 
+    const handleClick = (e) => {
+        e.preventDefault()
+        closeModal()
+    }
+
+    const demoLogin = (e) => {
+        e.preventDefault()
+        const login = {
+            credential: "demo-user",
+            password: "password2"
+        }
+        return dispatch(loginBackend(login))
+            .then(closeModal)
+            .catch(
+            async (res) => {
+              const data = await res.json();
+              if (data?.errors) setErrors(data.errors);
+            }
+          )
+    }
+
     return (
-        <div>
-            <h2>Login!</h2>
-            <form onSubmit={handleSubmit}>
+        <>
+            <form onSubmit={handleSubmit} className="form">
+                <h2 className="text-white">Login!</h2>
                 <input
                     type="text"
                     placeholder="username or email"
@@ -68,11 +91,28 @@ function LoginFormModal() {
                 <p className="errors">
                     {hasSubmitted && errors.password? errors.password : ''}
                 </p>
-                <button type="submit">
-                    Login
-                </button>
+                <p className="fine-print text-white">
+                    Don&apos;t have an account yet?
+                    <OpenModalButton
+                        modalComponent={<SignupFormModal />}
+                        buttonText="Signup"
+                        onButtonClick={handleClick}
+                        htmlClass="a-sub"
+                    />
+                </p>
+                <div>
+                    <button type="submit" className="modal-but">
+                        Login
+                    </button>
+                    <button
+                        type="submit"
+                        className="modal-but"
+                        onClick={demoLogin}>
+                        Demo
+                    </button>
+                </div>
             </form>
-        </div>
+        </>
     )
 }
 

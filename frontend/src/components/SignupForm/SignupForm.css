@@ -1,0 +1,13 @@
+.fine-print {
+    font-size: 12px;
+}
+
+.a-sub {
+    background-color: unset;
+    border: unset;
+    color: #c78ee3;
+}
+
+.a-sub:hover {
+    cursor: pointer;
+}

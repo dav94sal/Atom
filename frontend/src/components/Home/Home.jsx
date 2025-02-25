@@ -1,14 +1,14 @@
 import TraditionalCalender from "../TraditionalCalender";
 import Scheduling from "../Scheduling/Scheduling";
-import { useDate } from "../../context/DateContext";
+// import { useDate } from "../../context/DateContext";
 import { useSelector } from "react-redux";
 import LandingPage from "../LandingPage";
 import "./home.css";
 
 function Home() {
     const user = useSelector(state => state.session.user)
-    const { currentDate, week } = useDate();
-    const thisWeek = currentDate.weeks[week];
+    // const { currentDate, week } = useDate();
+    // const thisWeek = currentDate.weeks[week];
 
     if (!user) return <LandingPage />
 

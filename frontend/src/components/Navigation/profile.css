@@ -17,6 +17,7 @@
     right: 10px;
     top: 55px;
     width: 250px;
+    z-index: 1;
 }
 
 .li-drop {

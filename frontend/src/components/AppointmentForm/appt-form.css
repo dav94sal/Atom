@@ -1,0 +1,16 @@
+.form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 100%;
+}
+
+.form h2 {
+    margin: 10px 0;
+}
+
+.appt-size {
+    height: 350px;
+}
